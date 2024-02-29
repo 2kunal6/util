@@ -4,6 +4,7 @@ curl
 docker
     - Follow steps 1-3 in https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
     - Please use sudo when using the docker command unless it is configured to work as a non-root user.  More details here: https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
+    - To see output of docker commands like 'RUN ls -l' build it like this: sudo docker build -t foo . --progress=plain --no-cache
 
 pipenv
     - pip builds are not deterministic.  We can freeze the exact versions of all specified packages and their dependents, but then we will have to maintain them ourselves.
