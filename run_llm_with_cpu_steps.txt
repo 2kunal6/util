@@ -1,0 +1,15 @@
+Reference: https://huggingface.co/TheBloke/Llama-2-7B-GGML
+
+python3 -m pipenv install huggingface-hub
+
+huggingface-cli download TheBloke/Llama-2-7B-GGUF llama-2-7b.Q8_0.gguf --local-dir . --local-dir-use-symlinks False
+
+python3 -m pipenv install ctransformers>=0.2.24
+
+Run the following code:
+from ctransformers import AutoModelForCausalLM
+# Set gpu_layers to the number of layers to offload to GPU. Set to 0 if no GPU acceleration is available on your system.
+llm = AutoModelForCausalLM.from_pretrained("TheBloke/Llama-2-7B-GGUF", model_file="llama-2-7b.Q8_0.gguf", model_type="llama", gpu_layers=0)
+#print(llm("AI is going to"))
+print(llm("""generate a semantically similar sentence to this:
+Instantiate a new OrderFillTransaction from a dict (generally from loading a JSON response). The data used to instantiate the OrderFillTransaction is a shallow copy of the dict passed in, with any complex child types instantiated appropriately."""))
