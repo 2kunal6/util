@@ -19,3 +19,6 @@ pipenv
         - pipenv graph: This will print the all the dependent and sub-dependent packages
         - pipenv run <cmd.py>: To run a command without creating a virtual environment
         - pipenv uninstall <package-name>: To uninstall a package
+
+top 
+    - command in ubuntu used to monitor CPU and memory usage
