@@ -1,6 +1,6 @@
 import requests
 import streamlit as st
-
+import subprocess
 
 
 st.title("Echo Bot")
@@ -21,10 +21,13 @@ if prompt := st.chat_input("What is up?"):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
 
-response = requests.get(f'http://faiss:8000/api/predict?prompt={prompt}')
+
+#response = subprocess.run(f"curl -X 'POST' 'faiss:8000/predict?prompt={prompt}' -H 'accept: application/json' -d '' ",
+#                        capture_output=True, text=True)
+response = requests.get('http://faiss:8000')
 # Display assistant response in chat message container
 with st.chat_message("assistant"):
-    st.markdown(response.json())
+    st.markdown(response.text)
 # Add assistant response to chat history
 st.session_state.messages.append({"role": "assistant", "content": response})
 
