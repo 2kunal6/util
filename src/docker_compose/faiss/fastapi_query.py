@@ -12,7 +12,7 @@ def read_root():
     return {"Hello": "World"}
 
 
-@app.post('/predict')
+@app.get('/predict')
 def read_item(prompt):
     return faiss_search.search_similar_docs(prompt, 1)
 
