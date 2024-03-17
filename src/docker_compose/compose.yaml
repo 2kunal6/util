@@ -1,0 +1,9 @@
+services:
+  faiss:
+    build:
+      context: faiss
+  streamlit:
+    build:
+      context: streamlit
+    depends_on:
+      - faiss
