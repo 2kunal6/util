@@ -14,4 +14,5 @@ class FAISSindex:
         return cls._instance
 
     def search_similar_docs(self, query, n_results):
-        return self.db.similarity_search(query, n_results)
+        results = self.db.similarity_search(query, n_results)
+        return results[0].page_content

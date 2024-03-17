@@ -26,9 +26,5 @@ if prompt := st.chat_input("What is up?"):
 # Display assistant response in chat message container
 with st.chat_message("assistant"):
     response = requests.get(f'http://faiss:8000/predict?prompt={prompt}')
-    #st.markdown(response[0].page_content)
-    st.markdown(response)
-# Add assistant response to chat history
-st.session_state.messages.append({"role": "assistant", "content": response})
-
-
+    st.markdown(response.text)
+    st.session_state.messages.append({"role": "assistant", "content": response.text})
