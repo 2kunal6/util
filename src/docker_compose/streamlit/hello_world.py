@@ -1,3 +1,4 @@
+import requests
 import streamlit as st
 
 
@@ -20,10 +21,10 @@ if prompt := st.chat_input("What is up?"):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
 
-response = faiss_search.search_similar_docs(prompt, 1)
+response = requests.get(f'http://faiss:8000/api/predict?prompt={prompt}')
 # Display assistant response in chat message container
 with st.chat_message("assistant"):
-    st.markdown(response)
+    st.markdown(response.json())
 # Add assistant response to chat history
 st.session_state.messages.append({"role": "assistant", "content": response})
 
