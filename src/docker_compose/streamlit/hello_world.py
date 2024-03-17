@@ -1,6 +1,8 @@
-# Reference https://docs.streamlit.io/knowledge-base/tutorials/build-conversational-apps#build-a-bot-that-mirrors-your-input
+from faiss import FAISSindex
 import streamlit as st
 
+
+faiss_search = FAISSindex()
 st.title("Echo Bot")
 
 # Initialize chat history
@@ -19,7 +21,7 @@ if prompt := st.chat_input("What is up?"):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
 
-response = f"Echo: {prompt}"
+response = faiss_search.search_similar_docs(prompt, 1)
 # Display assistant response in chat message container
 with st.chat_message("assistant"):
     st.markdown(response)
