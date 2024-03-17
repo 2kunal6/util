@@ -8,6 +8,8 @@ langchain-community = "*"
 faiss-cpu = "*"
 tiktoken = "*"
 sentence-transformers = "*"
+fastapi = "*"
+uvicorn = "*"
 
 [dev-packages]
 

@@ -8,3 +8,4 @@ RUN pipenv install
 
 ENTRYPOINT ["pipenv", "run"]
 
+CMD ["python", "fastapi_query.py"]

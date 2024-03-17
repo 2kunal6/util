@@ -1,8 +1,7 @@
-from faiss import FAISSindex
 import streamlit as st
 
 
-faiss_search = FAISSindex()
+
 st.title("Echo Bot")
 
 # Initialize chat history

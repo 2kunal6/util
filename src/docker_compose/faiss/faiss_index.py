@@ -8,7 +8,7 @@ class FAISSindex:
     def __new__(cls, *args, **kwargs):
         if cls._instance is None:
             cls._instance = super().__new__(cls)
-            cls.db = FAISS.load_local('faiss/faiss_index', HuggingFaceEmbeddings(),
+            cls.db = FAISS.load_local('faiss_index', HuggingFaceEmbeddings(),
                                       allow_dangerous_deserialization=True)
 
         return cls._instance
