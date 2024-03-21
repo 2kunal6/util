@@ -27,7 +27,6 @@ minikube
     - https://minikube.sigs.k8s.io/docs/start/
     - Everytime when you want to start it use: minikube start
 
-
 push docker images to https://hub.docker.com
     - build the docker image: sudo docker build -t flask_helm .
         - This will build a docker image named flask_helm from current directory
@@ -38,3 +37,7 @@ push docker images to https://hub.docker.com
         - This will tag flask_helm to 2kunal6/test-images:latest
     - sudo docker login
     - sudo docker push 2kunal6/test-images
+
+
+helm
+    - https://www.baeldung.com/ops/kubernetes-helm
