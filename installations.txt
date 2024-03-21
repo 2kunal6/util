@@ -22,3 +22,7 @@ pipenv
 
 top 
     - command in ubuntu used to monitor CPU and memory usage
+
+minikube
+    - https://minikube.sigs.k8s.io/docs/start/
+    - Everytime when you want to start it use: minikube start
