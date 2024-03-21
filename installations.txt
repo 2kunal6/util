@@ -26,6 +26,8 @@ top
 minikube
     - https://minikube.sigs.k8s.io/docs/start/
     - Everytime when you want to start it use: minikube start
+    - kubectl:
+        - kubectl delete pods --all -A -- this will recreate pods.  To delete permanently: kubectl delete deployments --all -A
 
 push docker images to https://hub.docker.com
     - build the docker image: sudo docker build -t flask_helm .
