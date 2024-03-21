@@ -26,3 +26,6 @@ top
 minikube
     - https://minikube.sigs.k8s.io/docs/start/
     - Everytime when you want to start it use: minikube start
+
+helm
+    - https://www.baeldung.com/ops/kubernetes-helm
