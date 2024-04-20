@@ -5,6 +5,21 @@ docker
     - Follow steps 1-3 in https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
     - Please use sudo when using the docker command unless it is configured to work as a non-root user.  More details here: https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
     - To see output of docker commands like 'RUN ls -l' in Dockerfile, build it like this: sudo docker build -t foo . --progress=plain --no-cache
+    - To remove the compulsion to run docker with sudo:
+        - sudo groupadd docker
+        - sudo usermod -aG docker $USER
+    - push docker images to https://hub.docker.com
+        - build the docker image: sudo docker build -t flask_helm .
+            - This will build a docker image named flask_helm from current directory
+        - sudo docker image ls
+            - This command should now show flask_helm
+        - Create a repository named test-images in hub.docker.com
+        - sudo docker tag flask_helm 2kunal6/test-images:latest
+            - This will tag flask_helm to 2kunal6/test-images:latest
+        - sudo docker login
+        - sudo docker push 2kunal6/test-images
+        - To run it from command line: sudo docker run -p 5000:5000 2kunal6/test-images:tagname
+
 
 pipenv
     - pip builds are not deterministic.  We can freeze the exact versions of all specified packages and their dependents, but then we will have to maintain them ourselves.
@@ -20,28 +35,19 @@ pipenv
         - pipenv run <cmd.py>: To run a command without creating a virtual environment
         - pipenv uninstall <package-name>: To uninstall a package
 
-top 
-    - command in ubuntu used to monitor CPU and memory usage
+Other:
+    - top: command in ubuntu used to monitor CPU and memory usage
 
 minikube
     - https://minikube.sigs.k8s.io/docs/start/
     - Everytime when you want to start it use: minikube start
+    - minikube ssh: to login to the minikube Virtual Machine
+    - minikube ip: to find the IP of the minikube Virtual Machine
+
+Kubernetes:
     - kubectl:
         - kubectl delete pods --all -A -- this will recreate pods.  To delete permanently: kubectl delete deployments --all -A
     - For ingress: https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
-
-push docker images to https://hub.docker.com
-    - build the docker image: sudo docker build -t flask_helm .
-        - This will build a docker image named flask_helm from current directory
-    - sudo docker image ls
-        - This command should now show flask_helm
-    - Create a repository named test-images in hub.docker.com
-    - sudo docker tag flask_helm 2kunal6/test-images:latest
-        - This will tag flask_helm to 2kunal6/test-images:latest
-    - sudo docker login
-    - sudo docker push 2kunal6/test-images
-    - To run it from command line: sudo docker run -p 5000:5000 2kunal6/test-images:tagname
-
 
 helm
     - https://www.baeldung.com/ops/kubernetes-helm
