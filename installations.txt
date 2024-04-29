@@ -43,6 +43,7 @@ minikube
     - Everytime when you want to start it use: minikube start
     - minikube ssh: to login to the minikube Virtual Machine
     - minikube ip: to find the IP of the minikube Virtual Machine
+    - minikube dash board --port 0: to debiug minikube for example when we get errors like 'minikube Exiting due to SVC_URL_TIMEOUT'
 
 Kubernetes:
     - kubectl:
